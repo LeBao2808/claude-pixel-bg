@@ -7,7 +7,9 @@ Animated pixel-art backgrounds for Claude, in two places:
 | **claude.ai** (Chrome, Edge, Cốc Cốc, Brave…) | Browser extension (Manifest V3) | [browser-extension/](browser-extension/) |
 | **Claude Code in VS Code** (also Cursor and Windsurf) | VS Code extension | [vscode-extension/](vscode-extension/) |
 
-There are 9 scenes, all drawn in code with no image files: **Night City, Deep Space, Sunset Ocean, Firefly Forest, Sakura Hill, Synthwave, Aurora Peaks, Ember Rain, Deep Sea**.
+There are 15 scenes, all drawn in code with no image files:
+- Dark: **Night City, Deep Space, Sunset Ocean, Firefly Forest, Synthwave, Aurora Peaks, Ember Rain, Deep Sea**
+- Bright: **Sakura Hill, Sunny Meadow, Tropical Beach, Rainbow Sky, Tulip Field, Koi Pond, Autumn Park**
 To view them all, open [preview.html](preview.html) in a browser.
 
 ## Build
@@ -20,8 +22,8 @@ node scripts/test.js      # run the tests
 ```
 
 The build creates:
-- `dist/claude-pixel-bg-1.0.0.vsix`: the VS Code extension
-- `dist/claude-pixel-bg-browser-1.0.0.zip`: the browser extension
+- `dist/claude-pixel-bg-1.1.0.vsix`: the VS Code extension
+- `dist/claude-pixel-bg-browser-1.1.0.zip`: the browser extension
 
 ## Install on claude.ai (browser)
 
@@ -33,7 +35,7 @@ The build creates:
 ## Install in VS Code (Claude Code)
 
 ```bash
-code --install-extension dist/claude-pixel-bg-1.0.0.vsix
+code --install-extension dist/claude-pixel-bg-1.1.0.vsix
 ```
 
 Or: Extensions → `…` → **Install from VSIX…** → choose the file in `dist/`.

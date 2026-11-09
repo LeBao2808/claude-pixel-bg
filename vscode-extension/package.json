@@ -1,8 +1,8 @@
 {
   "name": "claude-pixel-bg",
   "displayName": "Claude Pixel BG",
-  "description": "Animated pixel-art backgrounds for the Claude Code panel. Pick from 9 scenes.",
-  "version": "1.0.0",
+  "description": "Animated pixel-art backgrounds for the Claude Code panel. Pick from 15 scenes.",
+  "version": "1.1.0",
   "publisher": "pixelbg-local",
   "license": "MIT",
   "icon": "media/icon.png",
@@ -83,7 +83,13 @@
             "synthwave",
             "aurora-peaks",
             "ember-rain",
-            "deep-sea"
+            "deep-sea",
+            "sunny-meadow",
+            "tropical-beach",
+            "rainbow-sky",
+            "tulip-field",
+            "koi-pond",
+            "autumn-park"
           ],
           "enumDescriptions": [
             "Night City — Thành phố đêm, đèn cửa sổ lung linh, xe bay",
@@ -94,7 +100,13 @@
             "Synthwave — Mặt trời neon, lưới retro chạy vô tận",
             "Aurora Peaks — Núi tuyết, cực quang uốn lượn, tuyết rơi",
             "Ember Rain — Mưa ký tự màu cam ấm, màn hình CRT",
-            "Deep Sea — Thủy cung: cá bơi, rong biển, bong bóng"
+            "Deep Sea — Thủy cung: cá bơi, rong biển, bong bóng",
+            "Sunny Meadow — Đồng cỏ ngày nắng, mây trắng trôi, hoa và bướm",
+            "Tropical Beach — Biển xanh ngọc, cát vàng, cây dừa, thuyền buồm",
+            "Rainbow Sky — Bầu trời pastel, cầu vồng, khinh khí cầu bay",
+            "Tulip Field — Cánh đồng tulip nhiều màu, cối xay gió quay",
+            "Koi Pond — Hồ cá Koi nhìn từ trên, lá sen, hoa sen, gợn nước",
+            "Autumn Park — Công viên mùa thu, cây lá đỏ vàng, lá rơi bay"
           ],
           "description": "Cảnh nền pixel."
         },

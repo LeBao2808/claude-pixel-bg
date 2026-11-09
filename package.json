@@ -1,12 +1,12 @@
 {
   "name": "claude-pixel-bg-workspace",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Pixel-art backgrounds for Claude on claude.ai (browser extension) and Claude Code in VS Code.",
   "scripts": {
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "install:vscode": "node scripts/build.js && code --install-extension dist/claude-pixel-bg-1.0.0.vsix --force",
+    "install:vscode": "node scripts/build.js && code --install-extension dist/claude-pixel-bg-1.1.0.vsix --force",
     "themes": "node vscode-extension/cli.js list"
   },
   "license": "MIT"

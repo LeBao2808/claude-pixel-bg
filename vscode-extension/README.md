@@ -10,7 +10,7 @@ Animated pixel-art backgrounds for the **Claude Code** panel in VS Code.
 
 ## Scenes
 
-Night City · Deep Space · Sunset Ocean · Firefly Forest · Sakura Hill · Synthwave · Aurora Peaks · Ember Rain · Deep Sea
+Night City · Deep Space · Sunset Ocean · Firefly Forest · Sakura Hill · Synthwave · Aurora Peaks · Ember Rain · Deep Sea · Sunny Meadow · Tropical Beach · Rainbow Sky · Tulip Field · Koi Pond · Autumn Park
 
 ## How it works
 
