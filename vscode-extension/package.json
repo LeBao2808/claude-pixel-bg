@@ -1,0 +1,151 @@
+{
+  "name": "claude-pixel-bg",
+  "displayName": "Claude Pixel BG",
+  "description": "Animated pixel-art backgrounds for the Claude Code panel. Pick from 9 scenes.",
+  "version": "1.0.0",
+  "publisher": "pixelbg-local",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "claude",
+    "pixel",
+    "background",
+    "theme",
+    "pixel art"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "vscode:uninstall": "node ./uninstall.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudePixelBg.gallery",
+        "title": "Mở gallery (xem trước & chọn nền)",
+        "category": "Claude Pixel BG"
+      },
+      {
+        "command": "claudePixelBg.chooseTheme",
+        "title": "Chọn background",
+        "category": "Claude Pixel BG"
+      },
+      {
+        "command": "claudePixelBg.nextTheme",
+        "title": "Nền tiếp theo",
+        "category": "Claude Pixel BG"
+      },
+      {
+        "command": "claudePixelBg.enable",
+        "title": "Bật",
+        "category": "Claude Pixel BG"
+      },
+      {
+        "command": "claudePixelBg.disable",
+        "title": "Tắt (gỡ nền khỏi Claude Code)",
+        "category": "Claude Pixel BG"
+      },
+      {
+        "command": "claudePixelBg.reapply",
+        "title": "Áp dụng lại",
+        "category": "Claude Pixel BG"
+      }
+    ],
+    "configuration": {
+      "title": "Claude Pixel BG",
+      "properties": {
+        "claudePixelBg.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Bật nền pixel trong panel Claude Code."
+        },
+        "claudePixelBg.theme": {
+          "type": "string",
+          "default": "night-city",
+          "enum": [
+            "night-city",
+            "deep-space",
+            "sunset-ocean",
+            "firefly-forest",
+            "sakura",
+            "synthwave",
+            "aurora-peaks",
+            "ember-rain",
+            "deep-sea"
+          ],
+          "enumDescriptions": [
+            "Night City — Thành phố đêm, đèn cửa sổ lung linh, xe bay",
+            "Deep Space — Tinh vân, hành tinh có vành đai, sao băng",
+            "Sunset Ocean — Hoàng hôn trên biển, mặt trời sọc, sóng lấp lánh",
+            "Firefly Forest — Rừng thông lúc chạng vạng với đom đóm",
+            "Sakura Hill — Núi tuyết, cổng torii, cánh hoa anh đào bay",
+            "Synthwave — Mặt trời neon, lưới retro chạy vô tận",
+            "Aurora Peaks — Núi tuyết, cực quang uốn lượn, tuyết rơi",
+            "Ember Rain — Mưa ký tự màu cam ấm, màn hình CRT",
+            "Deep Sea — Thủy cung: cá bơi, rong biển, bong bóng"
+          ],
+          "description": "Cảnh nền pixel."
+        },
+        "claudePixelBg.mode": {
+          "type": "string",
+          "default": "behind",
+          "enum": [
+            "behind",
+            "overlay"
+          ],
+          "enumDescriptions": [
+            "Nền nằm phía sau giao diện, các khung trở nên trong suốt.",
+            "Phủ mờ lên trên toàn bộ giao diện."
+          ],
+          "description": "Cách hiển thị nền."
+        },
+        "claudePixelBg.intensity": {
+          "type": "number",
+          "default": 0.6,
+          "minimum": 0.1,
+          "maximum": 1,
+          "description": "Mức độ hiện của nền (0.1 – 1)."
+        },
+        "claudePixelBg.pixelSize": {
+          "type": "integer",
+          "default": 4,
+          "minimum": 2,
+          "maximum": 8,
+          "description": "Kích thước một pixel (px màn hình)."
+        },
+        "claudePixelBg.animate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Bật hoạt ảnh."
+        },
+        "claudePixelBg.fps": {
+          "type": "integer",
+          "default": 12,
+          "enum": [
+            8,
+            12,
+            24
+          ],
+          "description": "Số khung hình / giây của hoạt ảnh."
+        },
+        "claudePixelBg.hotkey": {
+          "type": "boolean",
+          "default": true,
+          "description": "Alt+Shift+B trong panel Claude để đổi nền nhanh (tạm thời đến lần áp dụng tiếp theo)."
+        }
+      }
+    }
+  }
+}

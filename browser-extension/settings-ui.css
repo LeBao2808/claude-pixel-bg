@@ -1,0 +1,62 @@
+/* Claude Pixel BG — settings-ui.css (shared) */
+:root {
+  --pbg-bg: #15111d;
+  --pbg-panel: #1f1829;
+  --pbg-line: #3a2f4a;
+  --pbg-fg: #f3e9df;
+  --pbg-muted: #a99bb5;
+  --pbg-accent: #d97757;
+  --pbg-accent-2: #ffb08a;
+  --pbg-shadow: #000000;
+}
+html, body { background: var(--pbg-bg); color: var(--pbg-fg); }
+body { margin: 0; }
+.pbg { font: 12px/1.4 ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace; padding: 12px; display: grid; gap: 12px; }
+.pbg * { box-sizing: border-box; }
+.pbg-head { display: flex; align-items: center; gap: 10px; }
+.pbg-logo { width: 28px; height: 28px; display: grid; place-items: center; background: var(--pbg-accent); color: #1a0d08; font-size: 18px; box-shadow: 3px 3px 0 var(--pbg-shadow); }
+.pbg-title { flex: 1; display: grid; }
+.pbg-title b { font-size: 14px; letter-spacing: .5px; }
+.pbg-title small { color: var(--pbg-muted); }
+
+.pbg-switch { position: relative; width: 44px; height: 22px; cursor: pointer; }
+.pbg-switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.pbg-switch span { position: absolute; inset: 0; background: var(--pbg-line); border: 2px solid var(--pbg-shadow); }
+.pbg-switch span::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; background: var(--pbg-muted); transition: transform .12s steps(3); }
+.pbg-switch input:checked + span { background: var(--pbg-accent); }
+.pbg-switch input:checked + span::after { transform: translateX(22px); background: #fff4ea; }
+.pbg-switch input:focus-visible + span { outline: 2px solid var(--pbg-accent-2); outline-offset: 2px; }
+
+.pbg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+.pbg-card { all: unset; cursor: pointer; display: grid; background: var(--pbg-panel); border: 2px solid var(--pbg-line); box-shadow: 3px 3px 0 var(--pbg-shadow); transition: transform .08s; }
+.pbg-card canvas { display: block; width: 100%; aspect-ratio: 16 / 9; image-rendering: pixelated; background: #000; }
+.pbg-card span { padding: 4px 6px; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--pbg-muted); }
+.pbg-card:hover { transform: translate(-1px, -1px); border-color: var(--pbg-accent-2); }
+.pbg-card:focus-visible { outline: 2px solid var(--pbg-accent-2); outline-offset: 2px; }
+.pbg-card.is-on { border-color: var(--pbg-accent); box-shadow: 3px 3px 0 var(--pbg-accent); }
+.pbg-card.is-on span { color: var(--pbg-fg); font-weight: bold; }
+.pbg-card.is-on span::before { content: "\25B6  "; color: var(--pbg-accent); }
+
+.pbg-opts { display: grid; gap: 8px; background: var(--pbg-panel); border: 2px solid var(--pbg-line); padding: 10px; box-shadow: 3px 3px 0 var(--pbg-shadow); }
+.pbg-row { display: flex; align-items: center; gap: 8px; min-height: 26px; flex-wrap: wrap; }
+.pbg-row > span:first-child { width: 72px; color: var(--pbg-muted); }
+.pbg-row input[type=range] { flex: 1; min-width: 100px; accent-color: var(--pbg-accent); }
+.pbg-row output { width: 40px; text-align: right; }
+.pbg-seg { display: flex; flex: 1; }
+.pbg-seg button { flex: 1; font: inherit; color: var(--pbg-fg); background: var(--pbg-bg); border: 2px solid var(--pbg-line); padding: 4px 6px; cursor: pointer; }
+.pbg-seg button + button { border-left: 0; }
+.pbg-seg button.is-on { background: var(--pbg-accent); color: #1a0d08; font-weight: bold; }
+.pbg-seg button:focus-visible, .pbg select:focus-visible { outline: 2px solid var(--pbg-accent-2); outline-offset: 1px; }
+.pbg-check { display: flex; gap: 6px; align-items: center; flex: 1; cursor: pointer; }
+.pbg-check input { accent-color: var(--pbg-accent); }
+.pbg select { font: inherit; color: var(--pbg-fg); background: var(--pbg-bg); border: 2px solid var(--pbg-line); padding: 2px 4px; }
+.pbg select:disabled { opacity: .5; }
+
+.pbg.is-off .pbg-grid, .pbg.is-off .pbg-opts { opacity: .45; filter: grayscale(.6); }
+.pbg-foot { color: var(--pbg-muted); display: grid; gap: 8px; }
+.pbg kbd { font: inherit; background: var(--pbg-panel); border: 1px solid var(--pbg-line); border-bottom-width: 2px; padding: 0 4px; color: var(--pbg-fg); }
+.pbg-btn { font: inherit; font-weight: bold; color: #1a0d08; background: var(--pbg-accent); border: 2px solid var(--pbg-shadow); box-shadow: 3px 3px 0 var(--pbg-shadow); padding: 6px 10px; cursor: pointer; }
+.pbg-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--pbg-shadow); }
+.pbg-btn.ghost { background: var(--pbg-panel); color: var(--pbg-fg); }
+.pbg-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.pbg-status { color: var(--pbg-accent-2); }

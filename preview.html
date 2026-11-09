@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel BG Gallery</title>
+<style>
+  :root { --bg: #0e0b14; --fg: #ffe6d2; --accent: #d97757; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.4 ui-monospace, Consolas, monospace; }
+  header { padding: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  h1 { font-size: 18px; margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding: 0 16px 16px; }
+  figure { margin: 0; border: 2px solid #2a2236; box-shadow: 4px 4px 0 #000; background: #000; cursor: pointer; }
+  figure:hover { border-color: var(--accent); }
+  canvas { display: block; width: 100%; aspect-ratio: 16/9; image-rendering: pixelated; }
+  figcaption { padding: 6px 8px; background: #1a1426; }
+  figcaption small { display: block; opacity: .7; }
+  #full { position: fixed; inset: 0; display: none; background: #000; }
+  #full canvas { width: 100vw; height: 100vh; aspect-ratio: auto; }
+  #full.on { display: block; }
+  #hint { position: fixed; left: 16px; bottom: 16px; background: #1a1426; padding: 6px 10px; border: 2px solid var(--accent); }
+</style>
+</head>
+<body>
+<header><h1>▣ Claude Pixel BG — Gallery</h1><span>Bấm vào một cảnh để xem toàn màn hình (Esc để thoát).</span></header>
+<div class="grid" id="grid"></div>
+<div id="full"><canvas id="fullc"></canvas><div id="hint">Esc để thoát</div></div>
+<script src="shared/pixel-engine.js"></script>
+<script>
+  const grid = document.getElementById('grid');
+  const q = new URLSearchParams(location.search);
+  const still = q.has('still');
+  PixelBG.themes.forEach(t => {
+    const fig = document.createElement('figure');
+    const c = document.createElement('canvas');
+    fig.append(c);
+    const cap = document.createElement('figcaption');
+    cap.innerHTML = `<b>${t.name}</b><small>${t.desc}</small>`;
+    fig.append(cap);
+    grid.append(fig);
+    const r = PixelBG.createRenderer(c, { theme: t.id, size: () => [160, 90], fps: 12, animate: !still });
+    r.start();
+    fig.onclick = () => openFull(t.id);
+  });
+  let fr = null;
+  function openFull(id) {
+    const full = document.getElementById('full');
+    full.classList.add('on');
+    if (fr) fr.destroy();
+    fr = PixelBG.createRenderer(document.getElementById('fullc'), { theme: id, size: () => [Math.ceil(innerWidth / 4), Math.ceil(innerHeight / 4)], fps: 12 });
+    fr.start();
+  }
+  addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('full').classList.remove('on'); fr && fr.destroy(); fr = null; } });
+  if (q.get('full')) openFull(q.get('full'));
+</script>
+</body>
+</html>
