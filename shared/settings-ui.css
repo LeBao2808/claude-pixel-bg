@@ -35,6 +35,8 @@ body { margin: 0; }
 .pbg-card:focus-visible { outline: 2px solid var(--pbg-accent-2); outline-offset: 2px; }
 .pbg-card.is-on { border-color: var(--pbg-accent); box-shadow: 3px 3px 0 var(--pbg-accent); }
 .pbg-card.is-on span { color: var(--pbg-fg); font-weight: bold; }
+.pbg-card { position: relative; }
+.pbg-card.is-smooth::after { content: "HD"; position: absolute; top: 4px; right: 4px; padding: 0 3px; font-size: 9px; font-weight: bold; background: rgba(0,0,0,.55); color: #fff; border: 1px solid rgba(255,255,255,.4); }
 .pbg-card.is-on span::before { content: "\25B6  "; color: var(--pbg-accent); }
 
 .pbg-opts { display: grid; gap: 8px; background: var(--pbg-panel); border: 2px solid var(--pbg-line); padding: 10px; box-shadow: 3px 3px 0 var(--pbg-shadow); }

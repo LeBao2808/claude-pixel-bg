@@ -28,9 +28,9 @@
       '      <button type="button" data-mode="overlay" title="Phủ mờ lên trên (dùng khi chế độ Phía sau không hiện)">Phủ lên</button>' +
       '    </div></div>' +
       '    <div class="pbg-row"><span>Cường độ</span><input type="range" min="10" max="100" step="5" data-k="intensity"><output data-o="intensity"></output></div>' +
-      '    <div class="pbg-row"><span>Cỡ pixel</span><input type="range" min="2" max="8" step="1" data-k="pixelSize"><output data-o="pixelSize"></output></div>' +
+      '    <div class="pbg-row"><span title="Với nền mượt (HD): nhỏ hơn = nét hơn, tốn CPU hơn">Cỡ pixel</span><input type="range" min="2" max="8" step="1" data-k="pixelSize"><output data-o="pixelSize"></output></div>' +
       '    <div class="pbg-row"><span>Hoạt ảnh</span><label class="pbg-check"><input type="checkbox" data-k="animate"> chuyển động</label>' +
-      '      <select data-k="fps" title="Khung hình / giây"><option value="8">8 fps</option><option value="12">12 fps</option><option value="24">24 fps</option></select></div>' +
+      '      <select data-k="fps" title="Khung hình / giây"><option value="8">8 fps</option><option value="12">12 fps</option><option value="24">24 fps</option><option value="30">30 fps</option></select></div>' +
       '  </div>' +
       '  <footer class="pbg-foot">' + (extra.footer || '') + '<div class="pbg-hint">Phím tắt trên trang: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> đổi nền nhanh</div></footer>' +
       '</div>';
@@ -38,7 +38,7 @@
     var grid = el.querySelector('.pbg-grid');
     P.themes.forEach(function (t) {
       var b = document.createElement('button');
-      b.type = 'button'; b.className = 'pbg-card'; b.dataset.theme = t.id; b.setAttribute('role', 'option');
+      b.type = 'button'; b.className = 'pbg-card' + (t.smooth ? ' is-smooth' : ''); b.dataset.theme = t.id; b.setAttribute('role', 'option');
       b.title = t.desc;
       var c = document.createElement('canvas');
       b.appendChild(c);

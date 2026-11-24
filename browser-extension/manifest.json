@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Claude Pixel Background",
-  "version": "1.1.0",
-  "description": "Animated pixel-art backgrounds for claude.ai. Pick from 15 scenes.",
+  "version": "1.2.0",
+  "description": "Animated pixel-art backgrounds for claude.ai. Pick from 30 scenes.",
   "permissions": ["storage"],
   "content_scripts": [
     {

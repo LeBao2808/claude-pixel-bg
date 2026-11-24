@@ -7,9 +7,16 @@ Animated pixel-art backgrounds for Claude, in two places:
 | **claude.ai** (Chrome, Edge, Cốc Cốc, Brave…) | Browser extension (Manifest V3) | [browser-extension/](browser-extension/) |
 | **Claude Code in VS Code** (also Cursor and Windsurf) | VS Code extension | [vscode-extension/](vscode-extension/) |
 
-There are 15 scenes, all drawn in code with no image files:
+There are 30 scenes, all drawn in code with no image files.
+
+**Pixel art** (15):
 - Dark: **Night City, Deep Space, Sunset Ocean, Firefly Forest, Synthwave, Aurora Peaks, Ember Rain, Deep Sea**
 - Bright: **Sakura Hill, Sunny Meadow, Tropical Beach, Rainbow Sky, Tulip Field, Koi Pond, Autumn Park**
+
+**Smooth / HD** (15), with soft gradients, glow and anti-aliasing instead of pixels:
+- Dark: **Aurora Mesh, Lava Lamp, Warp Speed, Spiral Galaxy, Borealis, Rainy Night, Fireworks, Jellyfish, Constellation, Silk Waves, Snowy Night**
+- Bright: **Misty Dawn, Cotton Candy, Soap Bubbles, Calm Sea**
+
 To view them all, open [preview.html](preview.html) in a browser.
 
 ## Build
@@ -22,8 +29,8 @@ node scripts/test.js      # run the tests
 ```
 
 The build creates:
-- `dist/claude-pixel-bg-1.1.0.vsix`: the VS Code extension
-- `dist/claude-pixel-bg-browser-1.1.0.zip`: the browser extension
+- `dist/claude-pixel-bg-1.2.0.vsix`: the VS Code extension
+- `dist/claude-pixel-bg-browser-1.2.0.zip`: the browser extension
 
 ## Install on claude.ai (browser)
 
@@ -35,7 +42,7 @@ The build creates:
 ## Install in VS Code (Claude Code)
 
 ```bash
-code --install-extension dist/claude-pixel-bg-1.1.0.vsix
+code --install-extension dist/claude-pixel-bg-1.2.0.vsix
 ```
 
 Or: Extensions → `…` → **Install from VSIX…** → choose the file in `dist/`.
@@ -62,13 +69,13 @@ node vscode-extension/cli.js remove
 | **Chế độ: Phía sau** (Mode: Behind) | The background sits behind the interface, and the panels become partly transparent. This looks best. |
 | **Chế độ: Phủ lên** (Mode: Overlay) | A faint layer over the whole interface. Use it if claude.ai changes its CSS and Behind no longer shows the background. |
 | **Cường độ** (Intensity) | How strongly the background shows (10–100%). |
-| **Cỡ pixel** (Pixel size) | Size of one pixel, 2–8 px. Bigger looks blockier and uses less CPU. |
-| **Hoạt ảnh** (Animation) | Turns animation on or off, at 8, 12 or 24 fps. Animation pauses automatically when the tab is hidden. |
+| **Cỡ pixel** (Pixel size) | Size of one pixel, 2–8 px. Bigger looks blockier and uses less CPU. For HD scenes it sets the render resolution instead: 2 = full resolution, 4 = half (default), 8 = quarter. |
+| **Hoạt ảnh** (Animation) | Turns animation on or off, at 8, 12, 24 or 30 fps (smooth scenes look best at 24–30). Animation pauses automatically when the tab is hidden. |
 | **Alt+Shift+B** | Switches to the next scene directly on the page or in the Claude panel. |
 
 ## How it works
 
-- `shared/pixel-engine.js`: the shared engine. Each scene has a **static** layer, drawn once (dithered sky, mountains, buildings), and a **dynamic** layer drawn every frame (stars, snow, fish, the grid…). Both are drawn on a low-resolution canvas and scaled up with `image-rendering: pixelated`.
+- `shared/pixel-engine.js`: the shared engine. Each scene has a **static** layer, drawn once (dithered sky, mountains, buildings), and a **dynamic** layer drawn every frame (stars, snow, fish, the grid…). Pixel scenes are drawn on a low-resolution canvas and scaled up with `image-rendering: pixelated`. Scenes marked `smooth: true` render at a higher resolution (from `pixelSize / 2`) and are scaled with normal smoothing.
 - **claude.ai**: the canvas sits at `z-index:-1`. The background colors from the `bg-bg-*` classes are made translucent, and the CSS variable format is checked at runtime.
 - **VS Code**: Claude Code draws its UI in a webview whose colors come from the `--app-*-background` variables. The extension appends a script block between the `/*<PIXELBG-START>*/ … /*<PIXELBG-END>*/` markers at the end of `webview/index.js`:
   - It backs up the original file first, to `index.js.pixelbg.bak`.

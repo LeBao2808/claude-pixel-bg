@@ -100,8 +100,9 @@ test('remove restores the original byte-for-byte', () => {
   assert.strictEqual(patcher.remove(dir).changed, false);
 });
 test('every theme renders in all sizes without throwing (node canvas stub)', () => {
+  const any = new Proxy(function () {}, { get: () => any, apply: () => any, set: () => true });
   const ctx = new Proxy({}, {
-    get: (t, k) => (k in t ? t[k] : k === 'createImageData' ? (w, h) => ({ data: new Uint8ClampedArray(w * h * 4) }) : () => {}),
+    get: (t, k) => (k in t ? t[k] : k === 'createImageData' ? (w, h) => ({ data: new Uint8ClampedArray(w * h * 4) }) : () => any),
     set: (t, k, v) => { t[k] = v; return true; }
   });
   for (const t of P.themes) for (const [W, H] of [[16, 9], [96, 54], [480, 270], [60, 300]]) {

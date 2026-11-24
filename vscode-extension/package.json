@@ -1,8 +1,8 @@
 {
   "name": "claude-pixel-bg",
   "displayName": "Claude Pixel BG",
-  "description": "Animated pixel-art backgrounds for the Claude Code panel. Pick from 15 scenes.",
-  "version": "1.1.0",
+  "description": "Animated pixel-art backgrounds for the Claude Code panel. Pick from 30 scenes.",
+  "version": "1.2.0",
   "publisher": "pixelbg-local",
   "license": "MIT",
   "icon": "media/icon.png",
@@ -89,7 +89,22 @@
             "rainbow-sky",
             "tulip-field",
             "koi-pond",
-            "autumn-park"
+            "autumn-park",
+            "aurora-mesh",
+            "lava-lamp",
+            "warp-speed",
+            "galaxy",
+            "borealis",
+            "rainy-night",
+            "fireworks",
+            "jellyfish",
+            "constellation",
+            "silk-waves",
+            "snowy-night",
+            "misty-dawn",
+            "cotton-candy",
+            "soap-bubbles",
+            "calm-sea"
           ],
           "enumDescriptions": [
             "Night City — Thành phố đêm, đèn cửa sổ lung linh, xe bay",
@@ -106,7 +121,22 @@
             "Rainbow Sky — Bầu trời pastel, cầu vồng, khinh khí cầu bay",
             "Tulip Field — Cánh đồng tulip nhiều màu, cối xay gió quay",
             "Koi Pond — Hồ cá Koi nhìn từ trên, lá sen, hoa sen, gợn nước",
-            "Autumn Park — Công viên mùa thu, cây lá đỏ vàng, lá rơi bay"
+            "Autumn Park — Công viên mùa thu, cây lá đỏ vàng, lá rơi bay",
+            "Aurora Mesh — Gradient mềm nhiều màu loang và trôi chậm",
+            "Lava Lamp — Những khối sáp nóng chảy nổi lên rồi chìm xuống",
+            "Warp Speed — Bay xuyên không gian, sao kéo vệt ánh sáng",
+            "Spiral Galaxy — Thiên hà xoắn ốc hàng nghìn ngôi sao xoay chậm",
+            "Borealis — Cực quang mềm mại uốn lượn trên rặng núi tối",
+            "Rainy Night — Mưa đêm qua ô kính, đèn thành phố nhòe bokeh",
+            "Fireworks — Pháo hoa rực rỡ nổ trên thành phố về đêm",
+            "Jellyfish — Sứa phát sáng bồng bềnh dưới đáy biển sâu",
+            "Constellation — Mạng lưới điểm sáng nối với nhau, trôi nhẹ",
+            "Silk Waves — Những dải lụa neon uốn lượn mềm mại",
+            "Snowy Night — Đêm tuyết rơi, đồi trắng, căn nhà gỗ ấm áp",
+            "Misty Dawn — Bình minh, núi xếp lớp trong sương, chim bay",
+            "Cotton Candy — Trời pastel hồng tím, mây bông xốp trôi nhiều lớp",
+            "Soap Bubbles — Bong bóng xà phòng óng ánh cầu vồng bay lên",
+            "Calm Sea — Biển xanh trong ngày nắng, sóng lăn tăn, hải âu"
           ],
           "description": "Cảnh nền pixel."
         },
@@ -148,7 +178,8 @@
           "enum": [
             8,
             12,
-            24
+            24,
+            30
           ],
           "description": "Số khung hình / giây của hoạt ảnh."
         },
